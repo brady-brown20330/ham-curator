@@ -1,7 +1,6 @@
 import React from 'react';
 
 const PhotoListItem = (props) => {
-  console.log(props.row.images)
 
   if (props.row.images[0]) {
       return (

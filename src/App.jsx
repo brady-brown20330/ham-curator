@@ -7,23 +7,26 @@ const App = () => {
   const [count, setCount] = useState(0);
   const [randomPicture, setRandomPicture] = useState([])
 
-  let randomInt = Math.floor(Math.random() * 5)
-  console.log(randomInt)
 useEffect(() => {
-    Axios.get(`https://api.harvardartmuseums.org/object?apikey=${Key}`)
+    Axios.get(`https://api.harvardartmuseums.org/object?apikey=${Key}&page=1`)
   .then(data => setRandomPicture(data.data))
 }, []);
 
+const nextPage = () => {
+    Axios.get(randomPicture.info.next)
+    .then(res => setRandomPicture(res.data))
+    .then(
+      useEffect()
+    )
+    .then(console.log('should be page 2: ', randomPicture))
+}
 
     return(
 
       <div className="App">
         <h1> Hello, World! </h1>
-        <p>
-          {`You clicked ${count} times.`}
-        </p>
-        <button className="ri-button" onClick={() => setCount(count + 1)} type="submit">Dangerous Button</button>
-
+        <button>Previous</button>
+        <button onClick={nextPage}>Next</button>
         <PhotoList list={randomPicture}/>
       </div>
     );
