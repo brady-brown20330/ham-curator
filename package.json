@@ -1,0 +1,46 @@
+{
+  "name": "ham-curator",
+  "version": "1.0.0",
+  "description": "Image displaying app based off of the Harvard Art Museum API.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/brady-brown20330/ham-curator.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/brady-brown20330/ham-curator/issues"
+  },
+  "homepage": "https://github.com/brady-brown20330/ham-curator#readme",
+  "dependencies": {
+    "@material-ui/core": "^4.11.0",
+    "@material-ui/icons": "^4.9.1",
+    "@material-ui/lab": "^4.0.0-alpha.56",
+    "axios": "^0.20.0",
+    "body-parser": "^1.19.0",
+    "consolidate": "^0.16.0",
+    "express": "^4.17.1",
+    "node": "^15.0.1",
+    "nodemon": "^2.0.4",
+    "path": "^0.12.7",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.1.0",
+    "@babel/core": "^7.1.0",
+    "@babel/preset-env": "^7.1.0",
+    "@babel/preset-react": "^7.0.0",
+    "babel-loader": "^8.0.2",
+    "css-loader": "^1.0.0",
+    "style-loader": "^0.23.0",
+    "webpack": "^4.19.1",
+    "webpack-cli": "^3.1.1",
+    "webpack-dev-server": "^3.11.0"
+  }
+}
