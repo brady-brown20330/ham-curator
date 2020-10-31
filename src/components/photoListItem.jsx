@@ -2,7 +2,7 @@ import React from 'react';
 
 const PhotoListItem = (props) => {
 
-  if (props.row.images[0]) {
+  if (props.row.images && typeof props.row.images[0] === 'object') {
       return (
     <div>
       <img src={props.row.images[0].baseimageurl} alt="fetching"></img>

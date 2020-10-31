@@ -13,13 +13,24 @@ useEffect(() => {
 }, []);
 
 const nextPage = () => {
-    Axios.get(randomPicture.info.next)
-    .then(res => setRandomPicture(res.data))
-    .then(
-      useEffect()
-    )
-    .then(console.log('should be page 2: ', randomPicture))
+ if (randomPicture.info.next) {
+  Axios.get(randomPicture.info.next)
+  .then(res => setRandomPicture(res.data))
+  .then(console.log('should be page 2: ', randomPicture))
+ } else {
+   console.log('thats all folks!')
+ }
 }
+
+const prevPage = () => {
+  if (randomPicture.info.prev) {
+   Axios.get(randomPicture.info.prev)
+   .then(res => setRandomPicture(res.data))
+   .then(console.log('should be page 2: ', randomPicture))
+  } else {
+    console.log('thats all folks!')
+  }
+ }
 
     return(
 
@@ -27,7 +38,7 @@ const nextPage = () => {
         <h1> Hello, World! </h1>
         <button>Previous</button>
         <button onClick={nextPage}>Next</button>
-        <PhotoList list={randomPicture}/>
+        <PhotoList onClick={prevPage}list={randomPicture}/>
       </div>
     );
 
