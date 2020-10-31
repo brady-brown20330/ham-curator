@@ -21,9 +21,9 @@ module.exports = {
     ]
   },
   resolve: { extensions: ["*", ".js", ".jsx"] },
-  // output: {
-  //   path: path.resolve(__dirname + "/public"),
-  //   publicPath: "/public/",
-  //   filename: "bundle.js"
-  // }
+  output: {
+    path: path.resolve(__dirname + "/public"),
+    publicPath: "/public/",
+    filename: "bundle.js"
+  }
 };

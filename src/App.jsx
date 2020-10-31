@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Axios from 'axios';
 import Key from '../server/actualAPIKey.js';
+import PhotoList from './components/photoList.jsx';
 
 const App = () => {
   const [count, setCount] = useState(0);
@@ -10,8 +11,8 @@ const App = () => {
   console.log(randomInt)
 useEffect(() => {
     Axios.get(`https://api.harvardartmuseums.org/object?apikey=${Key}`)
-  .then(data => setRandomPicture(data.data.records[randomInt].images[0].baseimageurl))
-});
+  .then(data => setRandomPicture(data.data))
+}, []);
 
 
     return(
@@ -22,9 +23,8 @@ useEffect(() => {
           {`You clicked ${count} times.`}
         </p>
         <button className="ri-button" onClick={() => setCount(count + 1)} type="submit">Dangerous Button</button>
-    <div>Random Pic:
-      <img src={randomPicture}></img>
-    </div>
+
+        <PhotoList list={randomPicture}/>
       </div>
     );
 
