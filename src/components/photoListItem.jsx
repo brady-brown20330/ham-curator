@@ -15,8 +15,19 @@ const PhotoListItem = (props) => {
   } else {
     return (
       <div>
-      {/* <a>Error fetching image, Try this link:</a> */}
       <a href={props.row.url}>Error fetching image, Try this link:</a>
+      <div>
+        {props.row.title}
+      </div>
+      <div>
+        {props.row.culture}
+      </div>
+      <div>
+        {`Dated: ${props.row.dated}}`}
+      </div>
+      <div>
+    {'Artist' ? props.row.people[0].displayname : 'Unknown'}
+      </div>
       </div>
     )
   }
