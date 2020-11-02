@@ -30,8 +30,9 @@ const useStyles = makeStyles((theme) => ({
   },
   classyButton: {
     display: 'flex',
-    flexDirection: 'column',
+    flexDirection: 'row',
     alignItems: 'center',
+    justifyContent: 'center',
     '& > *': {
       margin: theme.spacing(1),
      }
@@ -69,6 +70,11 @@ const prevPage = () => {
   }
  }
 
+ const topFunction = () => {
+  document.body.scrollTop = 0; // For Safari
+  document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+ }
+
     return(
       <div>
         <div className={classes.root}>
@@ -86,11 +92,14 @@ const prevPage = () => {
     </div>
         <ButtonGroup variant="text" color="primary" aria-label="text primary button group" className={classes.classyButton}>
           <Button onClick={prevPage} color="black">Previous</Button>
-            <div></div>
           <Button onClick={nextPage} color="black">Next</Button>
         </ButtonGroup>
 
         <PhotoList list={randomPicture} />
+
+        <ButtonGroup variant="text" color="primary" aria-label="text primary button group" className={classes.classyButton}>
+          <Button onClick={topFunction} color="black">Back to Top</Button>
+        </ButtonGroup>
       </div>
     );
 

@@ -19,9 +19,9 @@ import StarBorderIcon from '@material-ui/icons/StarBorder';
       // Promote the list into his own layer on Chrome. This cost memory but helps keeping high FPS.
       display: 'flex',
       maxHeight: 'auto',
-      float: 'center',
+      alignItems: 'center',
+      justifyContent: 'center',
       maxWidth: '100%',
-      float: 'center',
       transform: 'translateZ(0)',
     },
     titleBar: {

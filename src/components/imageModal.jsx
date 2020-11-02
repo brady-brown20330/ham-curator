@@ -26,6 +26,7 @@ const useStyles = makeStyles((theme) => ({
   modalStyle1:{
     display: 'flex',
     alignItems: 'center',
+    textAlign: 'center',
     justifyContent: 'center',
     top:'10%',
     left:'10%',
