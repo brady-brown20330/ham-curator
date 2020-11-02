@@ -23,10 +23,11 @@ const nextPage = () => {
 }
 
 const prevPage = () => {
+  console.log('should be a url: ', randomPicture.info.prev)
   if (randomPicture.info.prev) {
    Axios.get(randomPicture.info.prev)
    .then(res => setRandomPicture(res.data))
-   .then(console.log('should be page 2: ', randomPicture))
+   .then(console.log(`should be page ${randomPicture.info.page}: `, randomPicture))
   } else {
     console.log('thats all folks!')
   }
@@ -36,9 +37,9 @@ const prevPage = () => {
 
       <div className="App">
         <h1> Hello, World! </h1>
-        <button>Previous</button>
+        <button onClick={prevPage}>Previous</button>
         <button onClick={nextPage}>Next</button>
-        <PhotoList onClick={prevPage}list={randomPicture}/>
+        <PhotoList list={randomPicture}/>
       </div>
     );
 
