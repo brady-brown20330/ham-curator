@@ -34,12 +34,11 @@ const prevPage = () => {
  }
 
     return(
-
       <div className="App">
-        <h1> Hello, World! </h1>
+        <h1> Page through our collection: </h1>
         <button onClick={prevPage}>Previous</button>
         <button onClick={nextPage}>Next</button>
-        <PhotoList list={randomPicture}/>
+        <PhotoList list={randomPicture} />
       </div>
     );
 
