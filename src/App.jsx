@@ -81,7 +81,7 @@ const prevPage = () => {
       <AppBar position="static" className={classes.appBar}>
         <Toolbar>
           <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
-            <MenuIcon />
+            <PersistentDrawerLeft />
           </IconButton>
           <Typography variant="h6" className={classes.title}>
           Page through our collection:
@@ -89,7 +89,6 @@ const prevPage = () => {
           <Button color="inherit">Login</Button>
         </Toolbar>
       </AppBar>
-      <PersistentDrawerLeft />
     </div>
         <ButtonGroup variant="text" color="primary" aria-label="text primary button group" className={classes.classyButton}>
           <Button onClick={prevPage} color="black">Previous</Button>
