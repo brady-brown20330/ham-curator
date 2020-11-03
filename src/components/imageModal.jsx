@@ -47,6 +47,7 @@ export default function TransitionsModal(props) {
     setOpen(false);
   };
 
+ if (typeof(props.people) === 'object' && props.people[0]) {
   return (
     <div>
       <button className={classes.modalButton} type="button" onClick={handleOpen} style={{ fontSize: 24 }}>
@@ -72,4 +73,31 @@ export default function TransitionsModal(props) {
       </Modal>
     </div>
   );
+ } else {
+  return (
+    <div>
+      <button className={classes.modalButton} type="button" onClick={handleOpen} style={{ fontSize: 24 }}>
+        {`${props.row.title}`}
+      </button>
+      <Modal
+        className={classes.modalStyle1}
+        open={open}
+        onClose={handleClose}
+        closeAfterTransition
+        BackdropComponent={Backdrop}
+        BackdropProps={{
+          timeout: 500,
+        }}
+      >
+        <Fade in={open}>
+          <div className={classes.paper}>
+            <img src={props.row.images[0].baseimageurl}></img>
+            <h2 id="transition-modal-title">{props.row.title}</h2>
+            <p id="transition-modal-description">{`${props.row.classification} created by the ${props.row.culture}'s dated ${props.row.dated}.`}</p>
+          </div>
+        </Fade>
+      </Modal>
+    </div>
+  );
+ }
 }

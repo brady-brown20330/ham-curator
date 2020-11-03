@@ -45,7 +45,7 @@ const App = () => {
   const [randomPicture, setRandomPicture] = useState([])
 
 useEffect(() => {
-    Axios.get(`https://api.harvardartmuseums.org/object?apikey=${Key}&page=1`)
+    Axios.get(`https://api.harvardartmuseums.org/object?apikey=${Key}`)
   .then(data => setRandomPicture(data.data))
 }, []);
 
