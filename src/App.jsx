@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import Axios from 'axios';
 import Key from '../server/actualAPIKey.js';
 import PhotoList from './components/photoList.jsx';
-
+import PersistentDrawerLeft from './components/drawer.jsx';
 
 //material-ui imports
 import { makeStyles } from '@material-ui/core/styles';
@@ -55,7 +55,7 @@ const nextPage = () => {
   .then(res => setRandomPicture(res.data))
   .then(console.log('should be page 2: ', randomPicture))
  } else {
-   console.log('thats all folks!')
+   alert('thats all folks!')
  }
 }
 
@@ -89,6 +89,7 @@ const prevPage = () => {
           <Button color="inherit">Login</Button>
         </Toolbar>
       </AppBar>
+      <PersistentDrawerLeft />
     </div>
         <ButtonGroup variant="text" color="primary" aria-label="text primary button group" className={classes.classyButton}>
           <Button onClick={prevPage} color="black">Previous</Button>

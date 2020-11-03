@@ -4,7 +4,7 @@ import GridList from '@material-ui/core/GridList';
 import GridListTile from '@material-ui/core/GridListTile';
 import GridListTileBar from '@material-ui/core/GridListTileBar';
 import IconButton from '@material-ui/core/IconButton';
-import StarBorderIcon from '@material-ui/icons/StarBorder';
+import LoyaltyTwoToneIcon from '@material-ui/icons/LoyaltyTwoTone';
 
 import TransitionsModal from './imageModal.jsx';
 
@@ -54,7 +54,7 @@ const PhotoListItem = (props) => {
           titlePosition="top"
           actionIcon={
             <IconButton className={classes.icon}>
-              <StarBorderIcon />
+              <LoyaltyTwoToneIcon />
             </IconButton>
           }
           actionPosition="left"
@@ -84,9 +84,5 @@ const PhotoListItem = (props) => {
     )
   }
 }
-
-/*
-`${props.row.title}, Artist: ${props.row.people[0].displayname || 'Unknown'}, Culture: ${props.row.culture}, Dated: ${props.row.title}`
-*/
 
 export default PhotoListItem;

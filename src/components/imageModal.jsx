@@ -21,7 +21,6 @@ const useStyles = makeStyles((theme) => ({
     border: 'none',
     padding: '0!important',
     color: 'white',
-    fontSize: '150',
   },
   modalStyle1:{
     display: 'flex',
@@ -50,7 +49,7 @@ export default function TransitionsModal(props) {
 
   return (
     <div>
-      <button className={classes.modalButton} type="button" onClick={handleOpen}>
+      <button className={classes.modalButton} type="button" onClick={handleOpen} style={{ fontSize: 24 }}>
         {`${props.row.title}`}
       </button>
       <Modal
