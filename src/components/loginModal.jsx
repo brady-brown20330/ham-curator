@@ -49,8 +49,22 @@ export default function LoginModal(props) {
 if (props.isOpen === true) {
   return (
 <div>
-<div>
-     Login or create an account:
+<div style={{float: "left"}}>
+     Create an account:
+     <form name="myForm" method="post">
+Name: <input type="text" name="fname"></input>
+Email: <input type="text" name="fname"></input>
+Password: <input type="text" name="fname"></input>
+<input type="submit" value="Create"></input>
+</form>
+  </div>
+  <div style={{float: "right"}}>
+     Login:
+     <form name="myForm2" method="get">
+Email: <input type="text" name="fname"></input>
+Password: <input type="text" name="fname"></input>
+<input type="submit" value="Login"></input>
+</form>
   </div>
 </div>
   )

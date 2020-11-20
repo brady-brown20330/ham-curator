@@ -99,10 +99,11 @@ const prevPage = () => {
           </Typography>
           <Button color="inherit" onClick={loginButton}>Login</Button>
         </Toolbar>
+        <LoginModal isOpen={modalIsOpen}/>
+
       </AppBar>
     </div>
     <div>
-    <LoginModal isOpen={modalIsOpen}/>
     </div>
         <ButtonGroup variant="text" color="primary" aria-label="text primary button group" className={classes.classyButton}>
           <Button onClick={prevPage} color="black">Previous</Button>
