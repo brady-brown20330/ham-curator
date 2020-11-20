@@ -3,6 +3,7 @@ import Axios from 'axios';
 import Key from '../server/actualAPIKey.js';
 import PhotoList from './components/photoList.jsx';
 import PersistentDrawerLeft from './components/drawer.jsx';
+import LoginModal from './components/loginModal.jsx'
 
 //material-ui imports
 import { makeStyles } from '@material-ui/core/styles';
@@ -43,6 +44,7 @@ const App = () => {
   const classes = useStyles();
   const [count, setCount] = useState(0);
   const [randomPicture, setRandomPicture] = useState([])
+  const [modalIsOpen, setModalIsOpen] = useState(false)
 
 useEffect(() => {
     Axios.get(`https://api.harvardartmuseums.org/object?apikey=${Key}`)
@@ -75,6 +77,15 @@ const prevPage = () => {
   document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
  }
 
+ const loginButton = () => {
+   if (modalIsOpen === false) {
+     setModalIsOpen(true)
+   } else {
+     setModalIsOpen(false)
+
+   }
+ }
+
     return(
       <div>
         <div className={classes.root}>
@@ -86,9 +97,12 @@ const prevPage = () => {
           <Typography variant="h6" className={classes.title}>
           Page through our collection:
           </Typography>
-          <Button color="inherit">Login</Button>
+          <Button color="inherit" onClick={loginButton}>Login</Button>
         </Toolbar>
       </AppBar>
+    </div>
+    <div>
+    <LoginModal isOpen={modalIsOpen}/>
     </div>
         <ButtonGroup variant="text" color="primary" aria-label="text primary button group" className={classes.classyButton}>
           <Button onClick={prevPage} color="black">Previous</Button>
