@@ -6,6 +6,7 @@ const cors = require('cors')
 const path = require("path");
 const Key = require('./actualAPIKey.js')
 
+
 //app.uses
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -16,6 +17,14 @@ app.use(cors())
 //   res.send(res)
 // })
 
+app.post('/users', function(req, res) {
+
+  console.log(req.body)
+});
+
+app.get('/users', function(req, res) {
+  console.log("get working");
+});
 
 
 app.listen(PORT, () => {

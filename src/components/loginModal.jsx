@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from 'react';
+import Axios from 'axios';
+
 import { makeStyles } from '@material-ui/core/styles';
 import Modal from '@material-ui/core/Modal';
 import Backdrop from '@material-ui/core/Backdrop';
 import Fade from '@material-ui/core/Fade';
+
 
 const useStyles = makeStyles((theme) => ({
   modal: {
@@ -46,28 +49,53 @@ export default function LoginModal(props) {
     setOpen(false);
   };
 
+
+  function validateForm() {
+    var x = document.forms["myForm"]["name"].value;
+    if (x == "") {
+      alert("Name must be filled out");
+      return false;
+    }
+  }
+
+  const addUser = (event) => {
+    Axios.post('/users', {
+      name: event.name.value,
+      email: event.email.value,
+      password: event.password.value
+    })
+    .then(data => alert('heres what we got back: ', data))
+  }
+
+  const checkUser = () => {
+    Axios.get('/users')
+    .then(data => alert('heres what we got back: ', data))
+  }
+
 if (props.isOpen === true) {
   return (
 <div>
 <div style={{float: "left"}}>
      Create an account:
-     <form name="myForm" method="post">
-Name: <input type="text" name="fname"></input>
-Email: <input type="text" name="fname"></input>
-Password: <input type="text" name="fname"></input>
-<input type="submit" value="Create"></input>
-</form>
+     <form name="createForm">
+        Name: <input type="text" name="name"></input>
+        Email: <input type="text" name="email"></input>
+        Password: <input type="text" name="password"></input>
+        <button type="submit" onClick={function() { addUser(createForm) }}>Create</button>
+      </form>
   </div>
+
+
   <div style={{float: "right"}}>
      Login:
-     <form name="myForm2" method="get">
-Email: <input type="text" name="fname"></input>
-Password: <input type="text" name="fname"></input>
-<input type="submit" value="Login"></input>
-</form>
+     <form name="loginForm">
+      Email: <input type="text" name="email"></input>
+      Password: <input type="text" name="password"></input>
+      <button type="submit" onClick={function() { addUser() }}>Login</button>
+    </form>
   </div>
 </div>
-  )
+  );
 } else {
   return (
     <div></div>
