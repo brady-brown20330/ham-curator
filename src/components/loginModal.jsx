@@ -67,9 +67,12 @@ export default function LoginModal(props) {
     .then(data => alert('heres what we got back: ', data))
   }
 
-  const checkUser = () => {
+  const checkUser = (event) => {
+    let username = event.username
+    let password = event.password
+
     Axios.get('/users')
-    .then(data => alert('heres what we got back: ', data))
+    .then(data => console.log('heres what we got back: ', data))
   }
 
 if (props.isOpen === true) {
@@ -91,7 +94,7 @@ if (props.isOpen === true) {
      <form name="loginForm">
       Email: <input type="text" name="email"></input>
       Password: <input type="text" name="password"></input>
-      <button type="submit" onClick={function() { addUser() }}>Login</button>
+      <button type="submit" onClick={function() { checkUser(loginForm) }}>Login</button>
     </form>
   </div>
 </div>
