@@ -1,7 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
-const PORT = 8080;
+const PORT = process.env.PORT || 8080;
 const cors = require('cors')
 const path = require("path");
 const Key = require('./actualAPIKey.js')
