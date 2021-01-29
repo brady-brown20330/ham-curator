@@ -7,6 +7,11 @@ const path = require("path");
 // const Key = require('./actualAPIKey.js')
 const MongoClient = require('mongodb').MongoClient
 
+var StatsD = require('hot-shots');
+var dogstatsd = new StatsD();
+
+// Increment a counter.
+dogstatsd.increment('page.views')
 
 //app.uses
 app.use(bodyParser.json());
