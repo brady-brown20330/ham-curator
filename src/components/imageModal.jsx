@@ -67,7 +67,7 @@ export default function TransitionsModal(props) {
           <div className={classes.paper}>
             <img src={props.row.images[0].baseimageurl}></img>
             <h2 id="transition-modal-title">{props.row.title}</h2>
-            <p id="transition-modal-description">{`${props.row.classification} created by the ${props.row.culture} ${props.row.people[0].role} ${props.row.people[0].displayname}, dated ${props.row.dated}.`}</p>
+            <p id="transition-modal-description">${props.row.culture} {`${props.row.classification} ${props.row.people[0].role} ${props.row.people[0].displayname}, dated ${props.row.dated}.`}</p>
           </div>
         </Fade>
       </Modal>
@@ -93,7 +93,7 @@ export default function TransitionsModal(props) {
           <div className={classes.paper}>
             <img src={props.row.images[0].baseimageurl}></img>
             <h2 id="transition-modal-title">{props.row.title}</h2>
-            <p id="transition-modal-description">{`${props.row.classification} created by the ${props.row.culture}'s dated ${props.row.dated}.`}</p>
+            <p id="transition-modal-description">{`${props.row.culture} ${props.row.classification}. dated ${props.row.dated}.`}</p>
           </div>
         </Fade>
       </Modal>
