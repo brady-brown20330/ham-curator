@@ -1,0 +1,33 @@
+#artillery run load-test.yaml
+scenarios:
+  - name: 'Page Through Results'
+    flow:
+      - get:
+          url: "/"
+      - loop:
+        - get:
+            url: "https://api.harvardartmuseums.org/object?apikey=e3cf619a-8d2b-4296-86a7-f9243837d79b&page=2"
+        - get:
+            url: "https://api.harvardartmuseums.org/object?apikey=e3cf619a-8d2b-4296-86a7-f9243837d79b&page=3"
+        - get:
+            url: "https://api.harvardartmuseums.org/object?apikey=e3cf619a-8d2b-4296-86a7-f9243837d79b&page=4"
+        - get:
+            url: "https://api.harvardartmuseums.org/object?apikey=e3cf619a-8d2b-4296-86a7-f9243837d79b&page=3"
+        count: 2
+
+config:
+  target: https://museum-art-curator.herokuapp.com/
+  http:
+    pool: 200
+  phases:
+    - duration: 30
+      arrivalRate: 15
+      name: Warm Up
+    - duration: 60
+      arrivalRate: 20
+      rampTo: 100
+      name: Ramp Up
+    - duration: 120
+      arrivalRate: 25
+      name: Sustained load
+
