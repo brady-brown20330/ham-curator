@@ -29,5 +29,6 @@ config:
       name: Ramp Up
     - duration: 120
       arrivalRate: 25
+      rampTo: 150
       name: Sustained load
 
